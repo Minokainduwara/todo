@@ -10,13 +10,15 @@ function App() {
     "Read a book",
   ]);
 
-  function handleAddTodo(){
-    
+  function handleAddTodo(newTodo) {
+    const newtodoList = [...todo, newTodo];
+    setTodos(newtodoList);
+
   }
 
   return (
     <>
-      <TodoInput />
+      <TodoInput handleAddTodo = {handleAddTodo}/>
       <Todolist todo={todo}/>
     </>
 
