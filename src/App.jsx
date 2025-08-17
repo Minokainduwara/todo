@@ -14,10 +14,24 @@ function App() {
 
   }
 
+  function handleDeleteTodo(index) {
+    const newTodoList = todo.filter((todo, todoindex) => {
+      return todoindex !== index;
+    })
+    setTodos(newTodoList);
+  }
+
+  function handleEditTodo(index, newTodo) {
+    const newTodoList = todo.map((todo, index) => 
+      index === todoIndex ? newTodo : todo
+    );
+    setTodos(newTodoList);
+  }
+
   return (
     <>
       <TodoInput handleAddTodo = {handleAddTodo}/>
-      <Todolist todo={todo}/>
+      <Todolist handleDeleteTodo={handleDeleteTodo} todo={todo}/>
     </>
 
   )
